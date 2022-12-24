@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Nightfall</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="nightfall">nightfall</div>
+    <script>
+        var size = 8;
+        var element = document.getElementById("nightfall");
+        element.style.color = "red";
+        element.style.fontSize = size + "px";
+        element.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
+        element.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
+
+        setInterval(function () {
+            size += 1;
+            element.style.fontSize = size + "px";
+        }, 50);
+
+        setInterval(function () {
+            var newElement = element.cloneNode(true);
+            newElement.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
+            newElement.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
+            document.body.appendChild(newElement);
+        }, 100);
+    </script>
+</body>
+</html>
